@@ -1,7 +1,7 @@
 # 📌 Task Management App
 
-![GitHub stars](https://img.shields.io/github/stars/USERNAME/task-management-app?style=social)
-![GitHub license](https://img.shields.io/github/license/USERNAME/task-management-app)
+![GitHub stars](https://img.shields.io/github/stars/usamahdhaqi/task-management-app?style=social)
+![GitHub license](https://img.shields.io/github/license/usamahdhaqi/task-management-app)
 ![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react)
 ![npm](https://img.shields.io/badge/npm-v9.6.7-CB3837?logo=npm)
 
@@ -46,7 +46,6 @@ Didesain dengan tema **modern, minimalis, aesthetic** menggunakan warna utama:
 ### Drag & Drop
 ![Screenshot](./screenshots/dragdrop.png)
 
-> 💡 Ganti gambar di folder `screenshots/` dengan hasil tangkapan layar aplikasi kamu.
 
 ---
 
@@ -54,7 +53,7 @@ Didesain dengan tema **modern, minimalis, aesthetic** menggunakan warna utama:
 
 ```bash
 # clone repository
-git clone https://github.com/USERNAME/task-management-app.git
+git clone https://github.com/usamahdhaqi/task-management-app.git
 
 cd task-management-app
 
