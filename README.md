@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# 📌 Task Management App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![GitHub stars](https://img.shields.io/github/stars/USERNAME/task-management-app?style=social)
+![GitHub license](https://img.shields.io/github/license/USERNAME/task-management-app)
+![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react)
+![npm](https://img.shields.io/badge/npm-v9.6.7-CB3837?logo=npm)
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📝 Deskripsi
 
-### `npm start`
+**Task Management App** adalah aplikasi manajemen tugas sederhana berbasis **React.js** dengan fitur **Drag & Drop**.  
+Didesain dengan tema **modern, minimalis, aesthetic** menggunakan warna utama:  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+🎨 `#DDF4E7` | `#67C090` | `#26667F` | `#124170`  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🚀 Fitur
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- ✅ Tambah/Edit/Hapus Task  
+- ✅ Drag & Drop antar kolom (To Do, In Progress, Done)  
+- ✅ Label kategori (Work, Personal, Urgent)  
+- ✅ Due date dengan highlight jika overdue  
+- ✅ Filter task berdasarkan label  
+- ✅ Data tersimpan di **localStorage**  
+- ✅ UI modern & minimalis  
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Teknologi
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [React.js](https://reactjs.org/)  
+- [React DnD](https://react-dnd.github.io/react-dnd/)  
+- [date-fns](https://date-fns.org/)  
+- Local Storage  
+- CSS (custom theme)  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 📸 Screenshot
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Dashboard
+![Screenshot](./screenshots/dashboard.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Drag & Drop
+![Screenshot](./screenshots/dragdrop.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+> 💡 Ganti gambar di folder `screenshots/` dengan hasil tangkapan layar aplikasi kamu.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## ⚡ Instalasi & Menjalankan
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+# clone repository
+git clone https://github.com/USERNAME/task-management-app.git
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+cd task-management-app
 
-### Code Splitting
+# install dependencies
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# jalankan aplikasi
+npm start
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📦 Build Production
 
-### Making a Progressive Web App
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Folder `build/` akan berisi file siap deploy.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🤝 Kontribusi
 
-### Deployment
+1. Fork repository ini  
+2. Buat branch fitur baru (`git checkout -b fitur-anda`)  
+3. Commit perubahan (`git commit -m "Menambahkan fitur baru"`)  
+4. Push ke branch (`git push origin fitur-anda`)  
+5. Buat Pull Request  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## 📄 Lisensi
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
+
+---
+
+### ✨ Dibuat dengan penuh semangat menggunakan React & DnD
