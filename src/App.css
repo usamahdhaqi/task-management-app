@@ -127,6 +127,25 @@ h1 {
   font-weight: bold;
 }
 
+.task-card .delete-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  color: #888;
+  transition: transform 0.2s ease, color 0.3s ease, background 0.3s ease;
+}
+
+.task-card .delete-btn:hover {
+  transform: scale(1.1);
+  color: #dc3545;
+  background: rgba(220, 53, 69, 0.1);
+}
+
 /* ==== BUTTONS ==== */
 .actions button {
   margin: 5px 2px;
@@ -142,4 +161,30 @@ h1 {
 .actions button:hover {
   background: var(--secondary);
   transform: translateY(-2px);
+}
+
+/* === Progress Tracking === */
+.progress-container {
+  margin: 20px 0;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.progress-bar {
+  background: #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 16px;
+}
+
+.progress-fill {
+  background: var(--primary);
+  height: 100%;
+  transition: width 0.4s ease;
 }

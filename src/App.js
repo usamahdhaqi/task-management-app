@@ -26,12 +26,29 @@ function App() {
 
   const filteredTasks = filter === "all" ? tasks : tasks.filter((t) => t.label === filter);
 
+  // === NEW: Hitung progress ===
+  const totalTasks = tasks.length;
+  const doneTasks = tasks.filter((t) => t.status === "done").length;
+  const progress = totalTasks > 0 ? Math.round((doneTasks / totalTasks) * 100) : 0;
+
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="app-container">
         <h1>Task Management App</h1>
         <TaskForm onAdd={addTask} />
         <FilterBar setFilter={setFilter} />
+
+        {/* NEW: Progress Bar */}
+        <div className="progress-container">
+          <div className="progress-info">
+            <span>{doneTasks}/{totalTasks} tasks completed</span>
+            <span>{progress}%</span>
+          </div>
+          <div className="progress-bar">
+            <div className="progress-fill" style={{ width: `${progress}%` }}></div>
+          </div>
+        </div>
+
         <div className="task-board">
           <TaskList
             title="To Do"
