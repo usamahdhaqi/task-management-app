@@ -17,14 +17,14 @@ export default function TaskCard({ task, deleteTask }) {
   return (
     <div
       ref={drag}
-      className={`task-card ${task.label.toLowerCase()}`}
+      className={`task-card label-${task.label.toLowerCase()}`}
       style={{
         opacity: isDragging ? 0.6 : 1,
         transform: isDragging ? "scale(1.05)" : "scale(1)",
         position: "relative",
       }}
     >
-      {/* Tombol Hapus dengan SVG */}
+      {/* Tombol Hapus */}
       <button
         className="delete-btn"
         onClick={() => deleteTask(task.id)}
@@ -50,7 +50,6 @@ export default function TaskCard({ task, deleteTask }) {
       </button>
 
       <h3>{task.title}</h3>
-      <p className="label">{task.label}</p>
       <p className={`due ${new Date(task.dueDate) < new Date() ? "overdue" : ""}`}>{due}</p>
     </div>
   );

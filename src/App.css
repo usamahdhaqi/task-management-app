@@ -1,5 +1,5 @@
 :root {
-  --bg: #DDF4E7;
+  --bg: linear-gradient(135deg, #DDF4E7, #cde7f0);
   --primary: #67C090;
   --secondary: #26667F;
   --dark: #124170;
@@ -22,8 +22,13 @@ body {
 
 h1 {
   text-align: center;
-  color: var(--dark);
   margin-bottom: 20px;
+  font-size: 2.2rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #124170, #26667F, #67C090);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* untuk browser modern */
 }
 
 /* ==== FORM & FILTER ==== */
@@ -97,13 +102,34 @@ h1 {
 
 /* ==== TASK CARD ==== */
 .task-card {
-  background: var(--bg);
+  background: linear-gradient(135deg, #ffffff, #f4f9f6);
   border-radius: 12px;
   padding: 12px;
   margin-bottom: 12px;
   border-left: 6px solid var(--primary);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  transition: all 0.25s ease; /* smooth animasi */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.25s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Border warna per label */
+.task-card.label-work {
+  border-left: 6px solid;
+  border-image: linear-gradient(180deg, #26667F, #124170) 1;
+}
+
+.task-card.label-personal {
+  border-left: 6px solid;
+  border-image: linear-gradient(180deg, #67C090, #3ca06d) 1;
+}
+
+.task-card.label-urgent {
+  border-left: 6px solid;
+  border-image: linear-gradient(180deg, #124170, #26667F) 1; /* biru gelap → biru */
 }
 
 .task-card h3 {
@@ -177,14 +203,14 @@ h1 {
 }
 
 .progress-bar {
-  background: #e0e0e0;
+  background: linear-gradient(90deg, #e0e0e0, #f8f8f8);
   border-radius: 12px;
   overflow: hidden;
   height: 16px;
 }
 
 .progress-fill {
-  background: var(--primary);
+  background: linear-gradient(90deg, #67C090, #26667F);
   height: 100%;
   transition: width 0.4s ease;
 }
