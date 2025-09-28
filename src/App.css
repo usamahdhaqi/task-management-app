@@ -129,7 +129,7 @@ h1 {
 
 .task-card.label-urgent {
   border-left: 6px solid;
-  border-image: linear-gradient(180deg, #124170, #26667F) 1; /* biru gelap → biru */
+  border-image: linear-gradient(180deg, #cddc39, #67C090) 1; /* kuning kehijauan → hijau */
 }
 
 .task-card h3 {
@@ -210,7 +210,7 @@ h1 {
 }
 
 .progress-fill {
-  background: linear-gradient(90deg, #67C090, #26667F);
+  background: linear-gradient(90deg, #cddc39, #67C090, #26667F); /* lime → hijau → biru */
   height: 100%;
   transition: width 0.4s ease;
 }
