@@ -13,45 +13,46 @@ import "./App.css";
 function App() {
   const [tasks, setTasks] = useLocalStorage("tasks", []);
   const [filter, setFilter] = useState("all");
+
+  // modal states
   const [editingTask, setEditingTask] = useState(null);
   const [deletingTask, setDeletingTask] = useState(null);
 
+  // safe functional updates to avoid stale state
   const addTask = (task) => {
-    setTasks([...tasks, { ...task, id: Date.now(), status: "todo" }]);
+    setTasks((prev) => [...prev, { ...task, id: Date.now(), status: "todo" }]);
   };
 
-  const handleEditSave = (updatedTask) => {
-    setTasks((prev) =>
-      prev.map((task) => (task.id === updatedTask.id ? updatedTask : task))
+  const updateTask = (id, updates) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) => (task.id === id ? { ...task, ...updates } : task))
     );
+  };
+
+  const deleteTask = (id) => {
+    setTasks((prev) => prev.filter((task) => task.id !== id));
+  };
+
+  const filteredTasks = filter === "all" ? tasks : tasks.filter((t) => t.label === filter);
+
+  // progress
+  const totalTasks = tasks.length;
+  const doneTasks = tasks.filter((t) => t.status === "done").length;
+  const progress = totalTasks > 0 ? Math.round((doneTasks / totalTasks) * 100) : 0;
+
+  // handle modal save
+  const handleEditSave = (updatedTask) => {
+    setTasks((prev) => prev.map((t) => (t.id === updatedTask.id ? updatedTask : t)));
     setEditingTask(null);
   };
 
+  // handle delete confirm
   const handleDeleteConfirm = () => {
     if (deletingTask) {
       deleteTask(deletingTask.id);
       setDeletingTask(null);
     }
   };
-
-  const updateTask = (id, updates) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
-        task.id === id ? { ...task, ...updates } : task
-      )
-    );
-  };
-
-  const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
-  };
-
-  const filteredTasks = filter === "all" ? tasks : tasks.filter((t) => t.label === filter);
-
-  // === NEW: Hitung progress ===
-  const totalTasks = tasks.length;
-  const doneTasks = tasks.filter((t) => t.status === "done").length;
-  const progress = totalTasks > 0 ? Math.round((doneTasks / totalTasks) * 100) : 0;
 
   return (
     <DndProvider backend={HTML5Backend}>
@@ -60,14 +61,14 @@ function App() {
         <TaskForm onAdd={addTask} />
         <FilterBar setFilter={setFilter} />
 
-        {/* NEW: Progress Bar */}
+        {/* Progress */}
         <div className="progress-container">
           <div className="progress-info">
             <span>{doneTasks}/{totalTasks} tasks completed</span>
             <span>{progress}%</span>
           </div>
           <div className="progress-bar">
-            <div className="progress-fill" style={{ width: `${progress}%` }}></div>
+            <div className="progress-fill" style={{ width: `${progress}%` }} />
           </div>
         </div>
 
@@ -79,6 +80,7 @@ function App() {
             updateTask={updateTask}
             deleteTask={deleteTask}
             setEditingTask={setEditingTask}
+            setDeletingTask={setDeletingTask}
           />
           <TaskList
             title="In Progress"
@@ -87,6 +89,7 @@ function App() {
             updateTask={updateTask}
             deleteTask={deleteTask}
             setEditingTask={setEditingTask}
+            setDeletingTask={setDeletingTask}
           />
           <TaskList
             title="Done"
@@ -95,8 +98,11 @@ function App() {
             updateTask={updateTask}
             deleteTask={deleteTask}
             setEditingTask={setEditingTask}
+            setDeletingTask={setDeletingTask}
           />
         </div>
+
+        {/* Modals */}
         {editingTask && (
           <EditTaskModal
             task={editingTask}
@@ -104,6 +110,7 @@ function App() {
             onClose={() => setEditingTask(null)}
           />
         )}
+
         {deletingTask && (
           <ConfirmDeleteModal
             task={deletingTask}
