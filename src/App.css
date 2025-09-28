@@ -183,10 +183,10 @@ h1 {
   font-weight: bold;
 }
 
+.task-card .edit-btn,
 .task-card .delete-btn {
   position: absolute;
   top: 8px;
-  right: 8px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -194,6 +194,26 @@ h1 {
   border-radius: 6px;
   color: #888;
   transition: transform 0.2s ease, color 0.3s ease, background 0.3s ease;
+}
+
+.task-card .edit-btn {
+  right: 36px; /* geser ke kiri */
+}
+
+.task-card .edit-btn:hover {
+  transform: scale(1.1);
+  color: #26667F;
+  background: rgba(38, 102, 127, 0.1);
+}
+
+.task-card .delete-btn {
+  right: 8px;
+}
+
+.task-card .delete-btn:hover {
+  transform: scale(1.1);
+  color: #dc3545;
+  background: rgba(220, 53, 69, 0.1);
 }
 
 .task-card .delete-btn:hover {
