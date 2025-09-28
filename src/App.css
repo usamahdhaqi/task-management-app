@@ -264,3 +264,71 @@ h1 {
   height: 100%;
   transition: width 0.4s ease;
 }
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal box */
+.modal {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 400px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.modal h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #124170, #67C090);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.modal-form input,
+.modal-form select {
+  width: 95%;
+  margin-bottom: 12px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-actions button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.modal-actions button:hover {
+  opacity: 0.85;
+}
+
+.modal-actions .cancel-btn {
+  background: #ddd;
+  color: #333;
+}
+
+.modal-actions button[type="submit"] {
+  background: #67C090;
+  color: #fff;
+}

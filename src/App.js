@@ -6,14 +6,23 @@ import useLocalStorage from "./hooks/useLocalStorage";
 import TaskList from "./components/TaskList";
 import TaskForm from "./components/TaskForm";
 import FilterBar from "./components/FilterBar";
+import EditTaskModal from "./components/EditTaskModal";
 import "./App.css";
 
 function App() {
   const [tasks, setTasks] = useLocalStorage("tasks", []);
   const [filter, setFilter] = useState("all");
+  const [editingTask, setEditingTask] = useState(null);
 
   const addTask = (task) => {
     setTasks([...tasks, { ...task, id: Date.now(), status: "todo" }]);
+  };
+
+  const handleEditSave = (updatedTask) => {
+    setTasks((prev) =>
+      prev.map((task) => (task.id === updatedTask.id ? updatedTask : task))
+    );
+    setEditingTask(null);
   };
 
   const updateTask = (id, updates) => {
@@ -60,6 +69,7 @@ function App() {
             tasks={filteredTasks.filter((t) => t.status === "todo")}
             updateTask={updateTask}
             deleteTask={deleteTask}
+            setEditingTask={setEditingTask}
           />
           <TaskList
             title="In Progress"
@@ -67,6 +77,7 @@ function App() {
             tasks={filteredTasks.filter((t) => t.status === "inprogress")}
             updateTask={updateTask}
             deleteTask={deleteTask}
+            setEditingTask={setEditingTask}
           />
           <TaskList
             title="Done"
@@ -74,8 +85,16 @@ function App() {
             tasks={filteredTasks.filter((t) => t.status === "done")}
             updateTask={updateTask}
             deleteTask={deleteTask}
+            setEditingTask={setEditingTask}
           />
         </div>
+        {editingTask && (
+          <EditTaskModal
+            task={editingTask}
+            onSave={handleEditSave}
+            onClose={() => setEditingTask(null)}
+          />
+        )}
       </div>
     </DndProvider>
   );

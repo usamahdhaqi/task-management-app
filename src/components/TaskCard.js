@@ -3,7 +3,7 @@ import React from "react";
 import { useDrag } from "react-dnd";
 import { format } from "date-fns";
 
-export default function TaskCard({ task, deleteTask }) {
+export default function TaskCard({ task, deleteTask, onEdit }) {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "TASK",
     item: { id: task.id, status: task.status },
@@ -27,9 +27,10 @@ export default function TaskCard({ task, deleteTask }) {
       {/* Tombol Edit */}
       <button
         className="edit-btn"
-        onClick={() => alert(`Edit task: ${task.title}`)} // sementara alert
+        onClick={() => onEdit(task)}
         aria-label="Edit task"
       >
+        {/* SVG pensil */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="18"
