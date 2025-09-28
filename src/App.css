@@ -63,14 +63,44 @@ h1 {
   padding: 8px 14px;
   border-radius: 8px;
   border: none;
-  background: var(--secondary);
-  color: var(--white);
   cursor: pointer;
+  font-weight: 500;
   transition: all 0.3s ease;
 }
 
-.filter-bar button:hover {
+.filter-bar button.all {
+  background: var(--secondary);
+  color: var(--white);
+}
+.filter-bar button.all:hover {
   background: var(--primary);
+}
+
+/* Work button */
+.filter-bar button.work {
+  background: #26667F; /* sama dengan border Work */
+  color: var(--white);
+}
+.filter-bar button.work:hover {
+  background: #124170;
+}
+
+/* Personal button */
+.filter-bar button.personal {
+  background: #67C090; /* sama dengan border Personal */
+  color: var(--white);
+}
+.filter-bar button.personal:hover {
+  background: #3ca06d;
+}
+
+/* Urgent button */
+.filter-bar button.urgent {
+  background: #cddc39; 
+  color: var(--white);
+}
+.filter-bar button.urgent:hover {
+  background: #99a71b;
 }
 
 /* ==== BOARD & COLUMN ==== */
