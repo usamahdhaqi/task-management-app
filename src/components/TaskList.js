@@ -19,7 +19,8 @@ export default function TaskList({ title, status, tasks, updateTask, deleteTask,
           key={task.id}
           task={task}
           deleteTask={deleteTask}
-          onEdit={(t) => setEditingTask(t)} // ✅ sekarang sudah valid
+          onEdit={(t) => setEditingTask(t)}
+          onDelete={(t) => setDeletingTask(t)}
         />
       ))}
     </div>

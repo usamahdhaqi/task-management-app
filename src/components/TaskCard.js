@@ -3,7 +3,7 @@ import React from "react";
 import { useDrag } from "react-dnd";
 import { format } from "date-fns";
 
-export default function TaskCard({ task, deleteTask, onEdit }) {
+export default function TaskCard({ task, deleteTask, onEdit, onDelete }) {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "TASK",
     item: { id: task.id, status: task.status },
@@ -50,9 +50,10 @@ export default function TaskCard({ task, deleteTask, onEdit }) {
       {/* Tombol Hapus */}
       <button
         className="delete-btn"
-        onClick={() => deleteTask(task.id)}
+        onClick={() => onDelete(task)} // ✅ buka modal konfirmasi
         aria-label="Delete task"
       >
+        {/* SVG Trash */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="18"

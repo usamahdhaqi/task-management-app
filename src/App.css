@@ -296,6 +296,12 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 
+.modal p {
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
 .modal-form input,
 .modal-form select {
   width: 95%;
@@ -331,4 +337,13 @@ h1 {
 .modal-actions button[type="submit"] {
   background: #67C090;
   color: #fff;
+}
+
+.modal-actions .delete-btn-modal {
+  background: #dc3545;
+  color: #fff;
+}
+
+.modal-actions .delete-btn-modal:hover {
+  background: #a71d2a;
 }

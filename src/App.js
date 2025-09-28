@@ -7,12 +7,14 @@ import TaskList from "./components/TaskList";
 import TaskForm from "./components/TaskForm";
 import FilterBar from "./components/FilterBar";
 import EditTaskModal from "./components/EditTaskModal";
+import ConfirmDeleteModal from "./components/ConfirmDeleteModal";
 import "./App.css";
 
 function App() {
   const [tasks, setTasks] = useLocalStorage("tasks", []);
   const [filter, setFilter] = useState("all");
   const [editingTask, setEditingTask] = useState(null);
+  const [deletingTask, setDeletingTask] = useState(null);
 
   const addTask = (task) => {
     setTasks([...tasks, { ...task, id: Date.now(), status: "todo" }]);
@@ -23,6 +25,13 @@ function App() {
       prev.map((task) => (task.id === updatedTask.id ? updatedTask : task))
     );
     setEditingTask(null);
+  };
+
+  const handleDeleteConfirm = () => {
+    if (deletingTask) {
+      deleteTask(deletingTask.id);
+      setDeletingTask(null);
+    }
   };
 
   const updateTask = (id, updates) => {
@@ -93,6 +102,13 @@ function App() {
             task={editingTask}
             onSave={handleEditSave}
             onClose={() => setEditingTask(null)}
+          />
+        )}
+        {deletingTask && (
+          <ConfirmDeleteModal
+            task={deletingTask}
+            onConfirm={handleDeleteConfirm}
+            onCancel={() => setDeletingTask(null)}
           />
         )}
       </div>
