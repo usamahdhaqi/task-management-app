@@ -17,7 +17,11 @@ function App() {
   };
 
   const updateTask = (id, updates) => {
-    setTasks(tasks.map((task) => (task.id === id ? { ...task, ...updates } : task)));
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === id ? { ...task, ...updates } : task
+      )
+    );
   };
 
   const deleteTask = (id) => {

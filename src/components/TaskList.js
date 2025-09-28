@@ -5,7 +5,11 @@ import TaskCard from "./TaskCard";
 export default function TaskList({ title, status, tasks, updateTask, deleteTask }) {
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "TASK",
-    drop: (item) => updateTask(item.id, { status }),
+    drop: (item) => {
+      if (item.status !== status) {
+        updateTask(item.id, { status });
+      }
+    },
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
     }),

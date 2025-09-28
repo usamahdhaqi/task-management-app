@@ -6,11 +6,12 @@ import { format } from "date-fns";
 export default function TaskCard({ task, deleteTask }) {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "TASK",
-    item: { id: task.id },
+    item: { id: task.id, status: task.status },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
   }));
+
 
   const due = task.dueDate ? format(new Date(task.dueDate), "dd MMM yyyy") : "No deadline";
 
