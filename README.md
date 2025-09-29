@@ -11,13 +11,13 @@
 ## 📸 Screenshots
 
 ### Dashboard & Progress Tracking
-![Dashboard Screenshot](./screenshots/dashboard.png)
+![Dashboard Screenshot](./public/screenshots/dashboard.png)
 
 ### Task Modal (Edit)
-![Edit Modal Screenshot](./screenshots/edit-modal.png)
+![Edit Modal Screenshot](./public/screenshots/edit-modal.png)
 
 ### Delete Confirmation
-![Delete Modal Screenshot](./screenshots/delete-modal.png)
+![Delete Modal Screenshot](./public/screenshots/delete-modal.png)
 
 ---
 
